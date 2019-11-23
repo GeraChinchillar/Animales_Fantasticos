@@ -1,0 +1,32 @@
+html,
+body,
+header{
+  height: 100%;
+}
+
+body{
+    background-image: url(../../images/img.jpg);  
+    background-size: cover;  
+    justify-content: center;
+}
+
+.agregar{
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.5em
+}
+
+.container{
+    margin-top: 3em;
+}
+
+
+@media only screen and (min-width: 768px) {
+    
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
