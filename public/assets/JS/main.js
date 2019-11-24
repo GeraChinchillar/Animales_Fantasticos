@@ -1,16 +1,14 @@
 var rows =[];
 var counterId = 0;
 
-console.log("conecta");
-
-
 var parsePoderSwitch = (value) => {
     if(value){
-        return "No";
+        return "Si";
     }
-    return "Si";
+    return "No";
 }
 function addRow(nombre,clasificacion,apariencia,ubicacion, poder,tbody){
+    console.log("entra");
     var newRow = document.createElement("tr");
     rows.push({                     
         "nombre": nombre,
@@ -27,19 +25,21 @@ function addRow(nombre,clasificacion,apariencia,ubicacion, poder,tbody){
             <td>${ubicacion}</td> 
             <td>${poder}</td>`;
 
+    newRow.className="back";
     var cellContainer = document.createElement("td");
     var deleteButton = document.createElement("button");
-
+    var modificarB = document.createElement("button")
     var cellContainer2 = document.createElement("td");
-    var validInput = document.createElement("input");
-    validInput.id="input"+counterId;
-    validInput.type = Text;
+
     
 
     deleteButton.classList.add("btn");
     deleteButton.classList.add("btn-danger");
-    deleteButton.innerText ="Eliminar";
-    deleteButton.value = counterId;
+    deleteButton.innerText ="Del";
+
+    modificarB.classList.add("btn");
+    modificarB.classList.add("btn-danger");
+    modificarB.innerText ="Edit";
 
 
     deleteButton.addEventListener("click",function(event){
@@ -65,7 +65,7 @@ function addRow(nombre,clasificacion,apariencia,ubicacion, poder,tbody){
 
     cellContainer.appendChild(deleteButton);
     newRow.appendChild(cellContainer);
-    cellContainer2.appendChild(validInput);
+    cellContainer2.appendChild(modificarB);
     newRow.appendChild(cellContainer2);
     tbody.appendChild(newRow);
     counterId++;
@@ -78,10 +78,10 @@ window.onload = function()
     var clasificacion_field = document.querySelector("#clasificacion");
     var apariencia_field = document.querySelector("#apariencia");
     var ubicacion_field = document.querySelector("#ubicacion")
-    var poder_field = document.querySelector("#poder");
+    var poder_field = document.querySelector("#late_switch");
     var tBody = document.querySelector("#table_body");
 
-    var nombreRegex = new RegExp('[A-Za-z ]*');
+    var nombreRegex = new RegExp('[A-Za-z]*');
 
     submit_btn.addEventListener("click",()=>{
         var nombre = nombre_field.value;
